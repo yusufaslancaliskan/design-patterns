@@ -1,3 +1,5 @@
+import com.cosef.abstractFactory.SuvFactory;
+import com.cosef.abstractFactory.VehicleProductionManager;
 import com.cosef.builder.AmericanoBuilder;
 import com.cosef.builder.CoffeeDirector;
 import com.cosef.builder.EspressoBuilder;
@@ -12,7 +14,14 @@ public class Main {
         //testBuilder();
         //testFactory();
 
+        testAbstractFactory();
 
+
+    }
+
+    private static void testAbstractFactory() {
+        VehicleProductionManager vehicleProductionManager = new VehicleProductionManager(new SuvFactory());
+        vehicleProductionManager.choose();
     }
 
     private static void testFactory() {
