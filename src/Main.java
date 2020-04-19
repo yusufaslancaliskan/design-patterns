@@ -1,5 +1,9 @@
 import com.cosef.abstractFactory.SuvFactory;
 import com.cosef.abstractFactory.VehicleProductionManager;
+import com.cosef.adapter.Atmacagiller;
+import com.cosef.adapter.Dogan;
+import com.cosef.adapter.DoganAdapter;
+import com.cosef.adapter.Sahin;
 import com.cosef.builder.AmericanoBuilder;
 import com.cosef.builder.CoffeeDirector;
 import com.cosef.builder.EspressoBuilder;
@@ -17,6 +21,18 @@ public class Main {
         //testAbstractFactory();
         //testDecorator();
 
+        Dogan dogan = new Dogan();
+        DoganAdapter doganAdapter = new DoganAdapter(dogan);
+        Sahin sahin = new Sahin();
+        doganGorunumluSahin(sahin);
+        doganGorunumluSahin(doganAdapter);
+        System.out.println();
+
+
+    }
+
+    private static void doganGorunumluSahin(Atmacagiller sahin) {
+        System.out.println(sahin.atmacagilllerTakimindadir() + sahin.ormanlikAlanlardaYasar());
     }
 
     private static void testDecorator() {
