@@ -11,6 +11,9 @@ import com.cosef.decorator.*;
 import com.cosef.factory.Dictionary;
 import com.cosef.factory.EnglishDictionary;
 import com.cosef.factory.TurkishDictionary;
+import com.cosef.proxy.Filozof;
+import com.cosef.proxy.Platon;
+import com.cosef.proxy.Sokrates;
 
 public class Main {
 
@@ -20,15 +23,20 @@ public class Main {
         //testFactory();
         //testAbstractFactory();
         //testDecorator();
+        //testAdapter();
 
+        Filozof filozof = new Platon();
+        filozof.say();
+
+    }
+
+    private static void testAdapter() {
         Dogan dogan = new Dogan();
         DoganAdapter doganAdapter = new DoganAdapter(dogan);
         Sahin sahin = new Sahin();
         doganGorunumluSahin(sahin);
         doganGorunumluSahin(doganAdapter);
         System.out.println();
-
-
     }
 
     private static void doganGorunumluSahin(Atmacagiller sahin) {
@@ -41,7 +49,7 @@ public class Main {
         movie = new Detective(movie);
         System.out.println(movie.getContents());
 
-        Type book = new Book("Ýnce Memed", "Yaþar Kemal");
+        Type book = new Book("ï¿½nce Memed", "Yaï¿½ar Kemal");
         book = new Biographical(book);
         book = new Action(book);
         System.out.println(book.getContents());
